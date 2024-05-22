@@ -3,14 +3,12 @@ from sqlalchemy.orm import relationship
 from app import db
 
 class Employee(db.Model):
-    __tablename__ = 'Employees'
     id = db.Column(db.Integer(), primary_key=True)
-    position_code = db.Column(db.String(10), db.ForeignKey('Positions.code'), nullable=False)
+    position_code = db.Column(db.String(10), db.ForeignKey('position.code'), nullable=False)
 
     position = relationship("Position", backref="employee", foreign_keys=[position_code])
 
 class Position(db.Model):
-    __tablename__ = 'Positions'
     code = db.Column(db.String(10), primary_key=True)
 
 
