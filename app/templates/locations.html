@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список мест</title>
+</head>
+<body>
+    <h1>Список мест</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Наименование места</th>
+                <th>Расположение</th>
+                <th>Описание места</th>
+                <th>Стоимость</th>
+                <th>Вид рекламы</th>
+                <th>Описание вида рекламы</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in results %}
+            <tr>
+                <td>{{ row.location_name }}</td>
+                <td>{{ row.location }}</td>
+                <td>{{ row.location_description }}</td>
+                <td>{{ row.cost }}</td>
+                <td>{{ row.ad_type_name }}</td>
+                <td>{{ row.ad_type_description }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

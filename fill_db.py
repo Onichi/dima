@@ -133,11 +133,19 @@ def populate_db():
     ]
     db.session.bulk_save_objects(orders)
 
+    a = [
+        Syka(customer_code="C01", location_code="L01", employee_code="1", service1_code='S004')
+    ]
+
+    db.session.bulk_save_objects(a)
+
     db.session.commit()
     print("bla")
+
 if __name__ == '__main__':
     with app.app_context():
+        populate_db()
         # user = db.session.query(Employee).first()
         # print(user.id, user.position_code)
-        populate_db()
+
 #
